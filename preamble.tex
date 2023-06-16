@@ -1,0 +1,56 @@
+% Packages and formatting rules go here
+\usepackage{enumitem} % for customizing list environments
+\usepackage{titlesec} % for customizing section titles
+\usepackage{fancyhdr}
+\usepackage{afterpage}
+
+
+% Custom commands
+\newcommand{\resolutionyear}[1]{\def\theyear{#1}}
+\newcommand{\resolutioncommittee}[1]{\def\thecommittee{#1}}
+\newcommand{\resolutionnumber}[1]{\def\theresolutionnumber{#1}}
+\newcommand{\resolutiondate}[1]{\def\thedate{#1}}
+\newcommand{\resolutionmeetingnr}[1]{\def\themeetingnr{#1}}
+
+% Formatting the section and list style for the clauses
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\normalfont\large\bfseries}{\thesubsection.}{1em}{}
+
+\newcommand{\pream}[1]{
+\section*{Preamble}
+\begin{enumerate}[label=\arabic*.]
+#1
+\end{enumerate}
+}
+
+\newcommand{\operative}[1]{
+\section*{Operative Clauses}
+\begin{enumerate}[label=\arabic*.]
+#1
+\end{enumerate}
+}
+
+% in your preamble.tex file
+
+
+% in your preamble.tex file
+
+
+% Page style for the first page
+\fancypagestyle{firstpage}{
+  \fancyhf{} % Clear all header and footer fields
+  \fancyhead[C]{
+  \includegraphics[width=6cm]{images/un_logo}} % for example, add a logo in the center of the header
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt} % remove the header line
+  \renewcommand{\footrulewidth}{0.4pt} % line above the footer
+}
+
+% Page style for the rest of the pages
+\fancypagestyle{otherpages}{
+  \fancyhf{} % clear all header and footer fields
+  \fancyhead[C]{\thecommittee} % different header content
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt} % line under the header
+  \renewcommand{\footrulewidth}{0.4pt} % line above the footer
+}

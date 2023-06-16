@@ -1,0 +1,42 @@
+# .gitignore for LaTeX projects
+
+# Temporary files
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+
+# Output files
+*.pdf
+*.ps
+
+# Other common temporary files
+*~
+*.bak
+*.swp
+*.backup
+
+# Directories commonly used for output
+_output
+_build
+.texpadtmp
+
+# macOS directory metadata
+.DS_Store

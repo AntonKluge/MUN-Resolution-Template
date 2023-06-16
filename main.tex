@@ -1,0 +1,181 @@
+\documentclass[10pt]{article}
+
+\usepackage{graphicx} % for graphics
+\usepackage{fancyhdr} % for custom headers and footers
+\usepackage{lipsum} % for dummy text
+\usepackage{tikz} % for shapes
+\usepackage{enumitem}
+
+\usepackage[a4paper,left=42mm,right=42mm,top=3cm,bottom=2cm]{geometry}
+\usepackage[absolute,overlay]{textpos} % for absolute positioning
+\usepackage{newtxtext,newtxmath} % Times New Roman font
+\usepackage{anyfontsize} % allows for arbitrary font sizes
+\usepackage{tikz} % for drawing lines
+\usepackage[letterspace=25]{microtype} % for letter spacing
+\usepackage{setspace} % for line spacing
+\usepackage{lastpage}
+
+\newcommand{\resNum}[1]{\def\theResNum{#1}}
+\newcommand{\resDate}[1]{\def\theResDate{#1}}
+\newcommand{\resYear}[1]{\def\theResYear{#1}}
+\newcommand{\committee}[1]{\def\theCommittee{#1}}
+\newcommand{\seqNum}[1]{\def\theSeqNum{#1}}
+\newcommand{\meetingNum}[1]{\def\theMettingNum{#1}}
+
+\newcommand{\pream}[2]{\textit{#1} #2,}
+\newcommand{\operative}[2]{\item \textit{#1} #2;}
+
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+
+\textblockorigin{0mm}{0mm} % set the origin to the top-left corner of the page
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0pt} % remove the header line
+\setlength{\parskip}{8pt}
+\setlength{\parindent}{22pt}
+
+\input{resolution/headers.tex}
+
+\fancyfoot[R]{
+
+	\ifthenelse{\isodd{\value{page}}}
+    {
+    	\begin{textblock*}{5cm}(145mm,285mm)
+    		\fontsize{9}{0}\selectfont
+      		\textbf{\thepage{}/\pageref{LastPage}}
+     	\end{textblock*}
+     	
+    }{
+     	\begin{textblock*}{5cm}(145mm,285mm)
+     		\fontsize{8}{0}\selectfont
+      		\theSeqNum
+     	\end{textblock*}
+    }
+    
+    \ifthenelse{\isodd{\value{page}}}
+    {
+    	\begin{textblock*}{5cm}(-25mm,285mm)
+    		\fontsize{8}{0}\selectfont
+      		\theSeqNum
+     	\end{textblock*}
+     	
+    }{
+     	\begin{textblock*}{5cm}(-25mm,285mm)
+     		\fontsize{9}{0}\selectfont
+      		\textbf{\thepage{}/\pageref{LastPage}}
+     	\end{textblock*}
+    }
+}
+
+
+\fancyhead[L]{
+
+	\begin{tikzpicture}[overlay, remember picture, shift={(-19mm, 0mm)}]
+    	\draw [line width=0.01cm] (0,0) -- (17,0);
+	\end{tikzpicture}
+	
+	\begin{textblock*}{5cm}(24mm,16mm)
+		\fontsize{9}{0}\selectfont % 14pt font size with 17pt leading (line spacing)
+		\textbf{S/RES/\theResNum (\theResYear)}
+	\end{textblock*}
+
+}
+
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  
+  \fancyfoot[C]{
+  
+  	\begin{tikzpicture}[remember picture, overlay]
+		\node at ([xshift=180mm,yshift=-277mm]current page.north west) % 2cm to the right and 3cm down from the top left corner of the page
+    	{\includegraphics[scale=0.17]{images/qr.png}}; % scale the image to 50% of its original size
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}[remember picture, overlay]
+		\node at ([xshift=167mm,yshift=-282mm]current page.north west) % 2cm to the right and 3cm down from the top left corner of the page
+    	{\includegraphics[scale=0.8]{images/recycle.png}}; % scale the image to 50% of its original size
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}[remember picture, overlay]
+		\node at ([xshift=41mm,yshift=-285mm]current page.north west) % 2cm to the right and 3cm down from the top left corner of the page
+    	{\includegraphics[scale=0.11]{images/code.png}}; % scale the image to 50% of its original size
+	\end{tikzpicture}
+	
+	
+	\begin{textblock*}{5cm}(128mm,282mm)
+		\fontsize{9}{0}\selectfont % 14pt font size with 17pt leading (line spacing)
+		\textbf{Please recycle}
+	\end{textblock*}
+	
+	\begin{textblock*}{5cm}(10mm,280mm)
+		\fontsize{10}{0}\selectfont % 14pt font size with 17pt leading (line spacing)
+		\theSeqNum (E)
+	\end{textblock*}
+  }
+}
+
+\begin{document}
+\lsstyle % enable letter spacing
+
+% --- First Page ---
+\thispagestyle{firstpage}
+
+\begin{flushleft}
+	
+	\begin{textblock*}{5cm}(4.2cm,1.5cm)
+		\fontsize{14}{17}\selectfont % 14pt font size with 17pt leading (line spacing)
+		United Nations
+	\end{textblock*}
+	
+	\begin{textblock*}{5cm}(158mm,1.4cm)
+		\fontsize{19}{0}\selectfont % 14pt font size with 17pt leading (line spacing)
+		S\fontsize{11}{0}\selectfont/RES/\theResNum (\theResYear)
+	\end{textblock*}
+
+  	\begin{tikzpicture}[overlay, remember picture, shift={(-19mm, 13mm)}]
+    	\draw [line width=0.02cm] (0,0) -- (17,0);
+	\end{tikzpicture}
+	
+	\begin{textblock*}{7cm}(4.2cm,2.4cm)
+		\fontsize{20}{17}\selectfont % 14pt font size with 17pt leading (line spacing)
+		\textbf{\theCommittee}
+	\end{textblock*}
+
+  	\begin{tikzpicture}[remember picture, overlay]
+		\node at ([xshift=3.1cm,yshift=-3.2cm]current page.north west) % 2cm to the right and 3cm down from the top left corner of the page
+    	{\includegraphics[scale=0.9]{images/un_logo.png}}; % scale the image to 50% of its original size
+	\end{tikzpicture}
+	
+	\begin{textblock*}{5cm}(132mm,2.7cm)
+		\fontsize{11}{10}\selectfont % 14pt font size with 17pt leading (line spacing)
+		Distr.: General\newline\theResDate
+		
+	\end{textblock*}
+	
+	\begin{tikzpicture}[overlay, remember picture, shift={(-19mm, -23mm)}]
+    	\draw [line width=0.05cm] (0,0) -- (17,0);
+	\end{tikzpicture}
+	
+	\vspace{55pt}
+	
+	\Large\textbf{Resolution \theResNum (\theResYear)} % add title here
+  	\vspace{5pt} % space between the title and the next line
+
+	\large\textbf{Adopted by the \theCommittee\ at its \theMettingNum th meeting, on \theResDate}
+	
+	\enlargethispage{-2cm}
+		
+\end{flushleft}
+
+\textit{The \theCommittee,}
+
+\input{resolution/preams.tex} 
+
+\begin{enumerate}[wide=0pt, labelindent=0.8cm, labelsep=0.8cm, leftmargin=0pt, align=left]
+	\input{resolution/operatives.tex}
+\end{enumerate}
+
+\end{document}
