@@ -14,6 +14,7 @@
 \usepackage[letterspace=25]{microtype} % for letter spacing
 \usepackage{setspace} % for line spacing
 \usepackage{lastpage}
+\usepackage{xparse}
 
 \newcommand{\resNum}[1]{\def\theResNum{#1}}
 \newcommand{\resDate}[1]{\def\theResDate{#1}}
@@ -23,7 +24,13 @@
 \newcommand{\meetingNum}[1]{\def\theMettingNum{#1}}
 
 \newcommand{\pream}[2]{\textit{#1} #2,}
-\newcommand{\operative}[2]{\item \textit{#1} #2;}
+% \newcommand{\operative}[2]{\item \textit{#1} #2;}
+
+\NewDocumentCommand{\operative}{s m m}{
+  \IfBooleanTF{#1}
+    {\item \textit{#2} #3.}
+    {\item \textit{#2} #3;}
+}
 
 \setlength{\TPHorizModule}{1mm}
 \setlength{\TPVertModule}{1mm}
