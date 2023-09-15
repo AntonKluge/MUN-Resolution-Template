@@ -19,7 +19,9 @@ The repository includes the following files:
 2. Open `main.tex` in your preferred LaTeX editor.
 3. Replace the placeholders in the `\resNum`, `\resDate`, `\resYear`, `\committee`, `\seqNum`, and `\meetingNum` in `resolution/headers.tex` commands with your resolution details.
 4. Write your preambular clauses in `resolution/preams.tex` and your operative clauses in `resolution/operatives.tex`.
-5. Compile the LaTeX document to produce a PDF of your resolution.
+5. If you want to write a special operative wihtout the `;` at the end use `\operative*` and add any punctuation needed.
+6. To do sub points in operatives use `\operative*` and in it use `\begin{subpoints} \item ... \end{subpoints}`.
+7. Compile the LaTeX document to produce a PDF of your resolution.
 
 ## Requirements
 
