@@ -32,6 +32,12 @@
     {\item \textit{#2} #3;}
 }
 
+\newcommand*{\ExtractFirstChar}[1]{%
+    \StrRemoveBraces{#1}[\FirstChar]%
+    \StrChar{\FirstChar}{1}[\FirstChar]%
+    \FirstChar
+}
+
 \newenvironment{subpoints}
   {\begin{enumerate}[label=(i),wide=0pt, labelindent=0.8cm, labelsep=0.8cm, leftmargin=56pt, align=left]}
   {\end{enumerate}}
@@ -91,7 +97,7 @@
 	
 	\begin{textblock*}{5cm}(24mm,16mm)
 		\fontsize{9}{0}\selectfont % 14pt font size with 17pt leading (line spacing)
-		\textbf{S/RES/\theResNum (\theResYear)}
+		\textbf{\ExtractFirstChar{\theCommittee}/RES/\theResNum\text{ }(\theResYear)}
 	\end{textblock*}
 
 }
@@ -124,7 +130,7 @@
 	
 	\begin{textblock*}{5cm}(10mm,280mm)
 		\fontsize{10}{0}\selectfont % 14pt font size with 17pt leading (line spacing)
-		\theSeqNum (E)
+		\theSeqNum\text{ }(E)
 	\end{textblock*}
   }
 }
@@ -144,7 +150,7 @@
 	
 	\begin{textblock*}{5cm}(158mm,1.4cm)
 		\fontsize{19}{0}\selectfont % 14pt font size with 17pt leading (line spacing)
-		S\fontsize{11}{0}\selectfont/RES/\theResNum (\theResYear)
+		\ExtractFirstChar{\theCommittee}\fontsize{11}{0}\selectfont/RES/\theResNum\text{ }(\theResYear)
 	\end{textblock*}
 
   	\begin{tikzpicture}[overlay, remember picture, shift={(-19mm, 13mm)}]
@@ -158,11 +164,11 @@
 
   	\begin{tikzpicture}[remember picture, overlay]
 		\node at ([xshift=3.1cm,yshift=-3.2cm]current page.north west) % 2cm to the right and 3cm down from the top left corner of the page
-    	{\includegraphics[scale=0.9]{images/un_logo.png}}; % scale the image to 50% of its original size
+    	{\includegraphics[scale=0.065]{images/un_logo.png}}; % scale the image to 50% of its original size
 	\end{tikzpicture}
 	
 	\begin{textblock*}{5cm}(132mm,2.7cm)
-		\fontsize{11}{10}\selectfont % 14pt font size with 17pt leading (line spacing)
+		\fontsize{11}{12}\selectfont % 14pt font size with 17pt leading (line spacing)
 		Distr.: General\newline\theResDate
 		
 	\end{textblock*}
@@ -173,7 +179,7 @@
 	
 	\vspace{55pt}
 	
-	\Large\textbf{Resolution \theResNum (\theResYear)} % add title here
+	\Large\textbf{Resolution \theResNum\text{ }(\theResYear)} % add title here
   	\vspace{5pt} % space between the title and the next line
 
 	\large\textbf{Adopted by the \theCommittee\ at its \theMettingNum th meeting, on \theResDate}

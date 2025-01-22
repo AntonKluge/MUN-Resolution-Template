@@ -32,11 +32,23 @@
 *.bak
 *.swp
 *.backup
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.synctex(busy)
 
 # Directories commonly used for output
 _output
 _build
+build
+out
+output
 .texpadtmp
 
 # macOS directory metadata
 .DS_Store
+
+
+# VSCode
+.vscode
+.history

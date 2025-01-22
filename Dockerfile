@@ -1,4 +1,4 @@
-FROM texlive/texlive:latest-medium
+FROM texlive/texlive:latest-full
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     latexmk \

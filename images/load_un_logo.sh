@@ -1,0 +1,1 @@
+curl -o un_logo.png https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Logo_of_the_United_Nations_%28B%26W%29.svg/902px-Logo_of_the_United_Nations_%28B%26W%29.svg.png
